@@ -13,7 +13,7 @@ CHIP RAM64 {
     OUT out[16];
 
     PARTS:
-    DMux4Way(in=load, sel=address[3..5], a=lad0, b=load1, c=load2, d=load3, e=load4, f=load5, g=load6, h=load7);
+    DMux4Way(in=load, sel=address[3..5], a=load0, b=load1, c=load2, d=load3, e=load4, f=load5, g=load6, h=load7);
     RAM8(in=in, load=load0, address=address=[address[0..2]], out=out0);
     RAM8(in=in, load=load1, address=address=[address[0..2]], out=out1);
     RAM8(in=in, load=load2, address=address=[address[0..2]], out=out2);
