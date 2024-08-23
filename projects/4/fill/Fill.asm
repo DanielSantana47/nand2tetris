@@ -9,3 +9,39 @@
 // the screen should be cleared.
 
 //// Replace this comment with your code.
+(START) //while (true)
+    @SCREEN
+    D=A
+    @i
+    M=D //i = SCREEN
+
+(LOOP)
+    @i
+    D=M
+    @24575 // screen - 1
+    D=A-D
+    @STARTD
+    D;JLT // i < screen - 1 (negative check)
+    @KBD
+    D=M
+    @BLACKEN // if (kbd != 0)
+    D;JNE
+
+// clear the screen (write "white" in every pixel)
+    @i
+    D=M
+    A=D
+    M=0
+    @CONTINUE
+
+(BLACKEN)
+    @i
+    D=M
+    A=D
+    M=-1
+
+(CONTINUE)
+    @i
+    M=M+1 // i++
+    @LOOP
+    0;JMP
